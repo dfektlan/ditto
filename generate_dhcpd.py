@@ -38,8 +38,19 @@ def createTableSubnet(name, switch, tftpServer):
     """ % (switch["network"], switch["netmask"], switch["to"], switch["from"], switch["gateway"], tftpServer, name)
     return config
 
+def getFilename():
+    parser = argparse.ArgumentParser(description='Create DHCP config from JSON')
+    parser.add_argument('--file', '-f', dest='filename', required=True,
+                    help='JSON file with LAN config')
+    args = parser.parse_args()
+    return args.filename
+
+
 def main():
-    conf = readConfig("example.json")
+
+    fn = getFilename() 
+
+    conf = readConfig(fn)
     output = getBaseConfig(conf["general"]["domain"], conf["general"]["dns-master"])
     output += getTftpConfig(conf["general"]["tftp"], conf["general"]["pxefile"])
     for switch in conf["switch"]:
