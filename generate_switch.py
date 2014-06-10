@@ -1,0 +1,51 @@
+import ipaddress
+import json
+from pprint import pprint
+from math import log, ceil
+
+def getSubnetAddress(maskBits):
+    bits = []
+    string = ""
+    c = 0
+    while c < 32:
+        if c < maskBits:
+            string += "1"
+        else:
+            string += "0"
+        if len(string) == 8:
+            bits.append(string)
+            string = ""
+        c += 1
+    bits = list(map(lambda x: str(int(x,2)), bits))
+    return ".".join(bits)
+
+
+
+rows = int(input("Number of rows: "))
+per = int(input("Switches per tables: "))
+switchMaskBit = int(input("Mask bit for each switch: ")) 
+switchNetworkStart = input("Start address for the participant network: ")
+totalNetworkSize = 32-(ceil(log(per*rows*(2**(32-switchMaskBit)),2)))
+vendorIdentifier = "docsis1.0"
+networks = list(ipaddress.ip_network("%s/%d" % (switchNetworkStart, totalNetworkSize)).subnets(new_prefix=switchMaskBit))
+
+
+s = {}
+s["switch"] = {}
+for row in range(1, rows+1):
+    for p in range(1, per+1):
+        name = "row-%d-%d" % (row, p)
+        ipnet = networks.pop(0)
+        s["switch"][name] = {
+            "ip": str(ipnet[2]),
+            "netmask": getSubnetAddress(switchMaskBit),
+            "gateway": str(ipnet[1]),
+            "bit": switchMaskBit,
+            "from": str(ipnet[3]),
+            "to": str(ipnet[-2]),
+            "vendor-identifier": vendorIdentifier,
+            "network": str(ipnet[0])
+        }
+
+print(json.dumps(s, indent=4, separators=(',', ': ')))
+
