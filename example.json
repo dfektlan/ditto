@@ -7,7 +7,7 @@
         "pxefile": "pxelinux.0",
         "dns-master": "10.0.4.5",
         "dhcp": "10.0.4.5",
-        "pubnet": "8.8.8.8/32"
+        "pubnet": "172.16.0.0/26"
         
     },
     "switch": {
@@ -74,10 +74,14 @@
     },
     "server": {
         "charmander": {
-            "ip": "10.0.4.4"
+            "ip": "10.0.4.4",
+            "role": "router",
+            "pub_int": "eth0",
+            "loc_int": "eth1"
         },
         "squirtle": {
-            "ip": "10.0.4.5"
+            "ip": "10.0.4.5",
+            "role": "dhcp"
         }
     }
 }

@@ -2,22 +2,7 @@ import ipaddress
 import json
 from pprint import pprint
 from math import log, ceil
-
-def getSubnetAddress(maskBits):
-    bits = []
-    string = ""
-    c = 0
-    while c < 32:
-        if c < maskBits:
-            string += "1"
-        else:
-            string += "0"
-        if len(string) == 8:
-            bits.append(string)
-            string = ""
-        c += 1
-    bits = list(map(lambda x: str(int(x,2)), bits))
-    return ".".join(bits)
+from ditto import getSubnetAddress
 
 
 
