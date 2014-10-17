@@ -5,82 +5,200 @@
         "password": "derp",
         "tftp": "10.0.4.5",
         "pxefile": "pxelinux.0",
-        "dns-master": "10.0.4.5",
-        "dhcp": "10.0.4.5",
-        "pubnet": "172.16.0.0/26"
+        "dns-master": "8.8.8.8",
+        "dhcp": "10.0.8.5",
+        "gateway": "10.0.8.5",
+        "pubnet": "172.16.0.0/31",
+        "core": "10.0.8.2"
         
     },
     "switch": {
+        "row-6-2": {
+            "network": "10.0.5.128",
+            "gateway": "10.0.5.129",
+            "netmask": "255.255.255.128",
+            "ip": "10.0.5.130",
+            "from": "10.0.5.131",
+            "vendor-identifier": "docsis1.0",
+            "port": 12,
+            "to": "10.0.5.254",
+            "bit": 25
+        },
         "row-2-1": {
             "network": "10.0.1.0",
-            "from": "10.0.1.3",
-            "to": "10.0.1.126",
-            "netmask": "255.255.255.128",
             "gateway": "10.0.1.1",
-            "vendor-identifier": "docsis1.0",
+            "netmask": "255.255.255.128",
             "ip": "10.0.1.2",
+            "from": "10.0.1.3",
+            "vendor-identifier": "docsis1.0",
+            "port": 3,
+            "to": "10.0.1.126",
             "bit": 25
         },
         "row-2-2": {
             "network": "10.0.1.128",
-            "from": "10.0.1.131",
-            "to": "10.0.1.254",
-            "netmask": "255.255.255.128",
             "gateway": "10.0.1.129",
-            "vendor-identifier": "docsis1.0",
+            "netmask": "255.255.255.128",
             "ip": "10.0.1.130",
+            "from": "10.0.1.131",
+            "vendor-identifier": "docsis1.0",
+            "port": 4,
+            "to": "10.0.1.254",
             "bit": 25
         },
-        "row-1-2": {
-            "network": "10.0.0.128",
-            "from": "10.0.0.131",
-            "to": "10.0.0.254",
+        "row-8-2": {
+            "network": "10.0.7.128",
+            "gateway": "10.0.7.129",
             "netmask": "255.255.255.128",
-            "gateway": "10.0.0.129",
+            "ip": "10.0.7.130",
+            "from": "10.0.7.131",
             "vendor-identifier": "docsis1.0",
-            "ip": "10.0.0.130",
+            "port": 16,
+            "to": "10.0.7.254",
             "bit": 25
         },
         "row-1-1": {
             "network": "10.0.0.0",
-            "from": "10.0.0.3",
-            "to": "10.0.0.126",
-            "netmask": "255.255.255.128",
             "gateway": "10.0.0.1",
-            "vendor-identifier": "docsis1.0",
+            "netmask": "255.255.255.128",
             "ip": "10.0.0.2",
+            "from": "10.0.0.3",
+            "vendor-identifier": "docsis1.0",
+            "port": 1,
+            "to": "10.0.0.126",
+            "bit": 25
+        },
+        "row-5-1": {
+            "network": "10.0.4.0",
+            "gateway": "10.0.4.1",
+            "netmask": "255.255.255.128",
+            "ip": "10.0.4.2",
+            "from": "10.0.4.3",
+            "vendor-identifier": "docsis1.0",
+            "port": 9,
+            "to": "10.0.4.126",
+            "bit": 25
+        },
+        "row-4-1": {
+            "network": "10.0.3.0",
+            "gateway": "10.0.3.1",
+            "netmask": "255.255.255.128",
+            "ip": "10.0.3.2",
+            "from": "10.0.3.3",
+            "vendor-identifier": "docsis1.0",
+            "port": 7,
+            "to": "10.0.3.126",
+            "bit": 25
+        },
+        "row-5-2": {
+            "network": "10.0.4.128",
+            "gateway": "10.0.4.129",
+            "netmask": "255.255.255.128",
+            "ip": "10.0.4.130",
+            "from": "10.0.4.131",
+            "vendor-identifier": "docsis1.0",
+            "port": 10,
+            "to": "10.0.4.254",
+            "bit": 25
+        },
+        "row-1-2": {
+            "network": "10.0.0.128",
+            "gateway": "10.0.0.129",
+            "netmask": "255.255.255.128",
+            "ip": "10.0.0.130",
+            "from": "10.0.0.131",
+            "vendor-identifier": "docsis1.0",
+            "port": 2,
+            "to": "10.0.0.254",
+            "bit": 25
+        },
+        "row-7-2": {
+            "network": "10.0.6.128",
+            "gateway": "10.0.6.129",
+            "netmask": "255.255.255.128",
+            "ip": "10.0.6.130",
+            "from": "10.0.6.131",
+            "vendor-identifier": "docsis1.0",
+            "port": 14,
+            "to": "10.0.6.254",
+            "bit": 25
+        },
+        "row-8-1": {
+            "network": "10.0.7.0",
+            "gateway": "10.0.7.1",
+            "netmask": "255.255.255.128",
+            "ip": "10.0.7.2",
+            "from": "10.0.7.3",
+            "vendor-identifier": "docsis1.0",
+            "port": 15,
+            "to": "10.0.7.126",
+            "bit": 25
+        },
+        "row-4-2": {
+            "network": "10.0.3.128",
+            "gateway": "10.0.3.129",
+            "netmask": "255.255.255.128",
+            "ip": "10.0.3.130",
+            "from": "10.0.3.131",
+            "vendor-identifier": "docsis1.0",
+            "port": 8,
+            "to": "10.0.3.254",
+            "bit": 25
+        },
+        "row-7-1": {
+            "network": "10.0.6.0",
+            "gateway": "10.0.6.1",
+            "netmask": "255.255.255.128",
+            "ip": "10.0.6.2",
+            "from": "10.0.6.3",
+            "vendor-identifier": "docsis1.0",
+            "port": 13,
+            "to": "10.0.6.126",
+            "bit": 25
+        },
+        "row-6-1": {
+            "network": "10.0.5.0",
+            "gateway": "10.0.5.1",
+            "netmask": "255.255.255.128",
+            "ip": "10.0.5.2",
+            "from": "10.0.5.3",
+            "vendor-identifier": "docsis1.0",
+            "port": 11,
+            "to": "10.0.5.126",
             "bit": 25
         },
         "row-3-1": {
             "network": "10.0.2.0",
-            "from": "10.0.2.3",
-            "to": "10.0.2.126",
-            "netmask": "255.255.255.128",
             "gateway": "10.0.2.1",
-            "vendor-identifier": "docsis1.0",
+            "netmask": "255.255.255.128",
             "ip": "10.0.2.2",
+            "from": "10.0.2.3",
+            "vendor-identifier": "docsis1.0",
+            "port": 5,
+            "to": "10.0.2.126",
             "bit": 25
         },
         "row-3-2": {
             "network": "10.0.2.128",
-            "from": "10.0.2.131",
-            "to": "10.0.2.254",
-            "netmask": "255.255.255.128",
             "gateway": "10.0.2.129",
-            "vendor-identifier": "docsis1.0",
+            "netmask": "255.255.255.128",
             "ip": "10.0.2.130",
+            "from": "10.0.2.131",
+            "vendor-identifier": "docsis1.0",
+            "port": 6,
+            "to": "10.0.2.254",
             "bit": 25
         }
     },
     "server": {
         "charmander": {
-            "ip": "10.0.4.4",
+            "ip": "10.0.8.1",
             "role": "router",
             "pub_int": "eth0",
             "loc_int": "eth1"
         },
         "squirtle": {
-            "ip": "10.0.4.5",
+            "ip": "10.0.8.1",
             "role": "dhcp"
         }
     }

@@ -1,0 +1,145 @@
+!
+hostname core
+!
+!
+no aaa new-model
+ip subnet-zero
+ip routing
+!
+!
+!
+no file verify auto
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+
+    interface GigabitEthernet0/3
+     description row-2-1
+     no switchport
+     ip address 10.0.1.1 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/8
+     description row-4-2
+     no switchport
+     ip address 10.0.3.129 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/7
+     description row-4-1
+     no switchport
+     ip address 10.0.3.1 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/4
+     description row-2-2
+     no switchport
+     ip address 10.0.1.129 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/16
+     description row-8-2
+     no switchport
+     ip address 10.0.7.129 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/15
+     description row-8-1
+     no switchport
+     ip address 10.0.7.1 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/10
+     description row-5-2
+     no switchport
+     ip address 10.0.4.129 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/9
+     description row-5-1
+     no switchport
+     ip address 10.0.4.1 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/11
+     description row-6-1
+     no switchport
+     ip address 10.0.5.1 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/5
+     description row-3-1
+     no switchport
+     ip address 10.0.2.1 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/6
+     description row-3-2
+     no switchport
+     ip address 10.0.2.129 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/12
+     description row-6-2
+     no switchport
+     ip address 10.0.5.129 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/2
+     description row-1-2
+     no switchport
+     ip address 10.0.0.129 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/13
+     description row-7-1
+     no switchport
+     ip address 10.0.6.1 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/14
+     description row-7-2
+     no switchport
+     ip address 10.0.6.129 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+    interface GigabitEthernet0/1
+     description row-1-1
+     no switchport
+     ip address 10.0.0.1 255.255.255.128
+     ip helper-address 10.0.8.5
+    !
+    
+!
+interface Vlan1
+ description Servernett
+ ip address 10.0.8.2 255.255.255.128
+ no shutdown
+!
+ip default-gateway 10.0.8.5
+ip classless
+ip http server
+!
+!
+control-plane
+!
+!
+line con 0
+line vty 5 15
+!
+end

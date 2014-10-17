@@ -1,0 +1,33 @@
+!
+hostname {{ hostname }}
+!
+!
+no aaa new-model
+ip subnet-zero
+ip routing
+!
+!
+!
+no file verify auto
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+{{ tableports }}
+!
+interface Vlan1
+ description Servernett
+ ip address {{ ip }} {{ subnet }}
+ no shutdown
+!
+ip default-gateway {{ gateway }}
+ip classless
+ip http server
+!
+!
+control-plane
+!
+!
+line con 0
+line vty 5 15
+!
+end

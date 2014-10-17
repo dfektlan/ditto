@@ -28,7 +28,9 @@ def createTableSubnet(name, switch, tftpServer):
       range %s %s;
       option routers %s;
       next-server %s;
-      filename "cisco/%s";
+      if substring (option vendor-class-identifier, 0, 9) = "docsis1.0" {
+          filename "cisco/%s";
+      }
     }
     """ % (switch["network"], switch["netmask"], switch["to"], switch["from"], switch["gateway"], tftpServer, name)
     return config

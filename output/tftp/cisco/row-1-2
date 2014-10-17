@@ -1,0 +1,180 @@
+!
+hostname row-1-2
+!
+!
+ip subnet-zero
+!
+ip ssh time-out 120
+ip ssh authentication-retries 3
+!
+spanning-tree mode pvst
+no spanning-tree optimize bpdu transmission
+spanning-tree extend system-id
+!
+!
+
+    interface FastEthernet0/1
+     description 1
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/2
+     description 2
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/3
+     description 3
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/4
+     description 4
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/5
+     description 5
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/6
+     description 6
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/7
+     description 7
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/8
+     description 8
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/9
+     description 9
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/10
+     description 10
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/11
+     description 11
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/12
+     description 12
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/13
+     description 13
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/14
+     description 14
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/15
+     description 15
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/16
+     description 16
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/17
+     description 17
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/18
+     description 18
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/19
+     description 19
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/20
+     description 20
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/21
+     description 21
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/22
+     description 22
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/23
+     description 23
+     spanning-tree portfast
+    !
+    
+    interface FastEthernet0/24
+     description 24
+     spanning-tree portfast
+    !
+    
+!
+!
+interface GigabitEthernet0/1
+ shutdown
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ ip address 10.0.0.130 255.255.255.128
+ no ip route-cache
+!
+ip http server
+snmp-server community public RO
+snmp-server location row-1-2
+snmp-server contact kradalby@dfektlan.no
+snmp-server enable traps snmp authentication warmstart linkdown linkup coldstart
+
+snmp-server enable traps config
+snmp-server enable traps copy-config
+snmp-server enable traps syslog
+snmp-server enable traps entity
+snmp-server enable traps flash insertion removal
+snmp-server enable traps bridge
+snmp-server enable traps stpx
+snmp-server enable traps rtr
+snmp-server enable traps c2900
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps port-security
+snmp-server enable traps MAC-Notification
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps hsrp
+snmp-server enable traps cluster
+snmp-server enable traps vlan-membership
+!
+line con 0
+line vty 0 4
+ password kraddemann
+ login
+line vty 5 15
+ login
+!
+!
+end

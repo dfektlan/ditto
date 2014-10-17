@@ -17,11 +17,14 @@ networks = list(ipaddress.ip_network("%s/%d" % (switchNetworkStart, totalNetwork
 
 s = {}
 s["switch"] = {}
+c = 0
 for row in range(1, rows+1):
     for p in range(1, per+1):
+        c += 1
         name = "row-%d-%d" % (row, p)
         ipnet = networks.pop(0)
         s["switch"][name] = {
+            "port": c,
             "ip": str(ipnet[2]),
             "netmask": getSubnetAddress(switchMaskBit),
             "gateway": str(ipnet[1]),
